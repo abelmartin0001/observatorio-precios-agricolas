@@ -66,3 +66,14 @@ def leer_precios():
     crear_tabla()
     with closing(conectar()) as con:
         return pd.read_sql_query("SELECT * FROM precios_semanales", con)
+
+def semana_guardada(semana, anio):
+    """True si esa semana ya tiene filas guardadas."""
+    crear_tabla()  # por si la tabla aún no existe
+    with closing(conectar()) as con:
+        cursor = con.execute(
+            "SELECT COUNT(*) FROM precios_semanales WHERE semana = ? AND anio = ?",
+            (semana, anio),
+        )
+        cantidad = cursor.fetchone()[0]
+    return cantidad > 0

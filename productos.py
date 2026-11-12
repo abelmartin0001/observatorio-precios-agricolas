@@ -6,7 +6,7 @@ URL_PRODUCTOS = "http://sistemas.midagri.gob.pe/sisap/portal2/mayorista/generos/
 
 
 def obtener_productos():
-    # Hace una peticion, recibe nada y devuelve un DataFrame con dos columnas: codigo y nombre
+    # Hace una peticion, recibe nada y devuelve un DataFrame con dos columnas: codigo y nombre de los productos
    sesion = obtener_sesion()
    r = sesion.post(URL_PRODUCTOS, data={"mercado": "*", "ajax": "true"}, timeout=30)
    r.raise_for_status()
