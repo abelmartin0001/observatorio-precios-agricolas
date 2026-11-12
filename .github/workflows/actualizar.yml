@@ -1,9 +1,8 @@
 name: Actualizar precios
 
 on:
-  schedule:
-    - cron: "0 14 * * 3"
   workflow_dispatch:
+  
 
 permissions:
   contents: write
