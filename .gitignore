@@ -220,5 +220,5 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Proyecto observatorio
-datos/
-*.db
+datos/*
+!datos/precios.db
